@@ -1,0 +1,130 @@
+site_name: kaze core
+site_description: 对接 Xboard / V2board / PPanel 的高性能代理节点后端
+site_url: https://docs.kazecore.dev/
+edit_uri: ""
+copyright: Copyright &copy; 2026 kaze · <a href="https://t.me/kaze_core">频道 @kaze_core</a> · <a href="https://t.me/kaze_auth_bot">购买 @kaze_auth_bot</a> · <a href="https://github.com/kazeproxy/kaze-release/releases">下载与发布记录</a>
+
+theme:
+  name: material
+  language: zh
+  logo: assets/logo-mark-white.svg
+  favicon: assets/favicon-64.png
+  font:
+    text: Inter
+    code: JetBrains Mono
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-7
+        name: 切换到暗色模式
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-4
+        name: 切换到亮色模式
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - navigation.indexes
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+
+plugins:
+  - search:
+      lang:
+        - zh
+        - en
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+extra_css:
+  - assets/extra.css
+
+nav:
+  - 首页: index.md
+  - 快速开始:
+      - 准备工作: quickstart/prepare.md
+      - 一键安装: quickstart/install.md
+      - Docker 部署:
+          - 安装 Docker: quickstart/install-docker.md
+          - 部署 kaze: quickstart/docker.md
+      - 手动安装: quickstart/manual.md
+      - 不接面板，直接搭节点: quickstart/local.md
+      - 从 XrayR / V2bX 迁移: quickstart/migrate.md
+      - 升级与卸载: quickstart/upgrade.md
+  - 面板对接:
+      - Xboard: panel/xboard.md
+      - Xboard 机器模式: panel/xboard-machine.md
+      - 一台机器多个面板: panel/multi-panel.md
+      - V2board: panel/v2board.md
+      - V2board（v2node 节点）: panel/v2node.md
+      - PPanel: panel/ppanel.md
+      - 面板设置对照: panel/compat.md
+      - 协议与传输: panel/protocols.md
+      - 路由与自定义出站（面板里配）: panel/routing.md
+  - 功能配置:
+      - 用户限制与风控: features/limits.md
+      - 审计与屏蔽: features/audit.md
+      - 分流与出口（节点文件）: features/routing.md
+      - DNS 解析: features/dns.md
+      - TLS 证书: features/cert.md
+      - 端口跳跃: features/port-hopping.md
+      - 真实 IP: features/realip.md
+      - 一台机器多节点、多协议: features/multinode.md
+      - 日志: features/log.md
+  - 授权: license.md
+  - 性能对比: performance.md
+  - 参考:
+      - 配置项速查表: reference/all-settings.md
+      - 命令行: reference/cli.md
+      - 常见问题与排查: faq.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/telegram
+      link: https://t.me/kaze_core
+      name: 频道 @kaze_core
+    - icon: fontawesome/solid/cart-shopping
+      link: https://t.me/kaze_auth_bot
+      name: 购买授权 @kaze_auth_bot
+    - icon: fontawesome/brands/github
+      link: https://github.com/kazeproxy/kaze-release
+      name: 下载
